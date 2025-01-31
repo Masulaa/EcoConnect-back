@@ -22,6 +22,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'phone_number',
+        'epcg_naplatni_broj',
+        'epcg_broj_brojila',
     ];
 
     /**
