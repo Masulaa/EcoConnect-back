@@ -34,15 +34,19 @@ class UserController extends Controller
         }
 
         $user = $request->user();
-        $dataToUpdate = $request->only(['name', 'email']);
+
+        $dataToUpdate = $request->only([
+            'name',
+            'email',
+            'address',
+            'phone_number',
+            'epcg_naplatni_broj',
+            'epcg_broj_brojila',
+            'vodovod_pretplatni_broj'
+        ]);
 
         if ($request->filled('newPassword')) {
             $dataToUpdate['password'] = Hash::make($request->input('newPassword'));
-        }
-
-        if ($request->hasFile('picture')) {
-            $picturePath = $request->file('picture')->store('profile_pictures', 'public');
-            $dataToUpdate['picture'] = $picturePath;
         }
 
         $user->update($dataToUpdate);
