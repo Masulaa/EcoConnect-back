@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('phone_number')->nullable();
             $table->string('epcg_naplatni_broj')->nullable();
             $table->string('epcg_broj_brojila')->nullable();
-            #$table->string('water_meter_number')->nullable();
+            $table->string('vodovod_pretplatni_broj')->nullable();
         });
     }
 
@@ -30,6 +30,7 @@ return new class extends Migration
             $table->dropColumn('phone_number');
             $table->dropColumn('epcg_naplatni_broj');
             $table->dropColumn('epcg_broj_brojila');
+            $table->string('vodovod_pretplatni_broj')->nullable();
         });
     }
 };
