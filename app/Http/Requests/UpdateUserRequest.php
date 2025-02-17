@@ -17,7 +17,11 @@ class UpdateUserRequest extends FormRequest
             'name' => 'sometimes|string|max:255',
             'email' => 'sometimes|string|email|max:255' . $this->user()->id,
             'password' => 'sometimes|string|min:8|confirmed',
-            'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:4096'
+            'address' => 'sometimes|string|max:255',
+            'phone_number' => 'sometimes|string|max:20',
+            'epcg_naplatni_broj' => 'sometimes|string|max:255',
+            'epcg_broj_brojila' => 'sometimes|string|max:255',
+            #'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:4096'
         ];
     }
 }
