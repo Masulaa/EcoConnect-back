@@ -17,10 +17,6 @@ class UserController extends Controller
      */
     public function show(Request $request, $id)
     {
-        if ($request->user()->id != $id) {
-            return response()->json(['data' => ['message' => 'Forbidden']], 403);
-        }
-
         return response()->json(['data' => ['user' => $request->user()]], 200);
     }
 
