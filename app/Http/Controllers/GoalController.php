@@ -11,9 +11,10 @@ class GoalController extends Controller
 {
     public function index()
     {
-        $goals = Auth::user()->goals()->pluck('goal');
+        $goals = Auth::user()->goals()->select('id', 'goal')->get();
         return response()->json($goals);
     }
+
 
     public function store(Request $request)
     {
