@@ -11,18 +11,18 @@ class GoalController extends Controller
 {
     public function index()
     {
-        $goals = Auth::user()->goals()->pluck('tekst');
+        $goals = Auth::user()->goals()->pluck('goal');
         return response()->json($goals);
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'tekst' => 'required|string|max:255'
+            'goal' => 'required|string|max:255'
         ]);
 
         $goal = Auth::user()->goals()->create([
-            'tekst' => $request->tekst
+            'goal' => $request->goal
         ]);
 
         return response()->json($goal, Response::HTTP_CREATED);
